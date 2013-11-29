@@ -1,5 +1,9 @@
 package ybilta.deepfreeze;
 
+import net.minecraft.creativetab.CreativeTabs;
+import net.minecraftforge.common.Configuration;
+import ybilta.deepfreeze.blocks.ModBlocks;
+import ybilta.deepfreeze.lib.ConfigurationHandler;
 import ybilta.deepfreeze.lib.Reference;
 import ybilta.deepfreeze.proxy.CommonProxy;
 import cpw.mods.fml.common.Mod;
@@ -19,9 +23,12 @@ public class DeepFreeze {
 	@SidedProxy(clientSide = "ybilta.deepfreeze.proxy.ClientProxy", serverSide = "ybilta.deepfreeze.proxy.CommonProxy")
 	public static CommonProxy proxy;
 	
+	public static CreativeTabs tabDeepFreeze = new CreativeTabs(CreativeTabs.getNextID(), Reference.MODID);
+	
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event) {
-		
+		ConfigurationHandler.init(new Configuration(event.getSuggestedConfigurationFile()));
+		ModBlocks.init();
 	}
 	
 	@EventHandler
