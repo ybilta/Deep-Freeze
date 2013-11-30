@@ -1,6 +1,5 @@
 package ybilta.deepfreeze.blocks;
 
-import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import ybilta.deepfreeze.DeepFreeze;
 import ybilta.deepfreeze.lib.BlockNames;
@@ -9,9 +8,11 @@ import ybilta.deepfreeze.lib.Reference;
 public class PackedIce extends BlockDF{
 
 	public PackedIce(int id) {
-		super(id, Material.ice);
+		super(id, Material.rock);
 		this.setCreativeTab(DeepFreeze.tabDeepFreeze);
 		this.setUnlocalizedName(BlockNames.PACKED_ICE);
+		this.slipperiness = 0.98F;
+		this.setHardness(0.5F);
 	}
 	
 	@Override
@@ -25,5 +26,6 @@ public class PackedIce extends BlockDF{
 
         return unlocalizedName.toString();
     }
+	
 
 }

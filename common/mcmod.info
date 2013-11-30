@@ -1,0 +1,20 @@
+[
+{
+  "modid": "DeepFreeze",
+  "name": "Deep Freeze",
+  "description": "Go to cold places",
+  "version": "0.1",
+  "url": "http://www.minecraftforum.net/topic/1106178-",
+  "updateUrl": "",
+  "authorList": [
+    "ybilta"
+  ],
+  "credits": "By ybilta",
+  "logoFile": "",
+  "screenshots": [
+  ],
+  "parent":"",
+  "dependencies": [
+  ]
+}
+]
