@@ -1,13 +1,17 @@
 package ybilta.deepfreeze;
 
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.common.Configuration;
+import net.minecraftforge.common.DimensionManager;
 import ybilta.deepfreeze.blocks.ModBlocks;
 import ybilta.deepfreeze.creativetab.CreativeTabDeepFreeze;
 import ybilta.deepfreeze.items.ModItems;
 import ybilta.deepfreeze.lib.ConfigurationHandler;
 import ybilta.deepfreeze.lib.Reference;
 import ybilta.deepfreeze.proxy.CommonProxy;
+import ybilta.deepfreeze.world.DeepFreezeWorldProvider;
+import ybilta.deepfreeze.world.biome.DeepFreezeBiomeGen;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
@@ -26,17 +30,20 @@ public class DeepFreeze {
 	public static CommonProxy proxy;
 	
 	public static CreativeTabs tabDeepFreeze = new CreativeTabDeepFreeze(CreativeTabs.getNextID(), Reference.MODID);
+	public static BiomeGenBase deepFreezeArctic;
 	
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event) {
 		ConfigurationHandler.init(new Configuration(event.getSuggestedConfigurationFile()));
 		ModBlocks.init();
 		ModItems.init();
-	}
+		deepFreezeArctic = new DeepFreezeBiomeGen(122);
+			}
 	
 	@EventHandler
 	public void load(FMLInitializationEvent event) {
-		
+		DimensionManager.registerProviderType(Reference.DIMENSION_ID, DeepFreezeWorldProvider.class, false);
+		DimensionManager.registerDimension(Reference.DIMENSION_ID, Reference.DIMENSION_ID);
 	}
 	
 	@EventHandler

@@ -8,8 +8,9 @@ public class ConfigurationHandler {
 		config.load();
 		
 		//load block ids
-		BlockIds.PACKED_ICE = config.getBlock(BlockNames.PACKED_ICE, BlockIds.PACKED_ICE_DEFAULT).getInt();
-		
+		BlockIds.DEEP_FREEZE_PORTAL = config.getBlock(BlockNames.DEEP_FREEZE_PORTAL, BlockIds.DEEP_FREEZE_PORTAL_DEFAULT).getInt();
+		config.addCustomCategoryComment("Terrain Gen", "Blocks to be used in terrain gen");
+		BlockIds.PACKED_ICE = config.get("Terrain Gen", BlockNames.PACKED_ICE, BlockIds.PACKED_ICE_DEFAULT).getInt();
 		//load item ids
 		ItemIds.ICE_PICK = config.getItem(ItemNames.ICE_PICK, ItemIds.ICE_PICK_DEFAULT).getInt();
 		
